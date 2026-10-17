@@ -1,0 +1,15 @@
+name: Secrets-Demo
+
+on:
+  workflow_dispatch:
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Use secrets
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          echo "Secrets is available in the workflow"
+          echo "Token length is: ${#DEPLOY_TOKEN}"
